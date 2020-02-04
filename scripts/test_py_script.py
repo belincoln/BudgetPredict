@@ -1,5 +1,6 @@
 import pandas as pd
 import argparse
+from sklearn import svm
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', default = None)
@@ -19,6 +20,7 @@ def over_thresh(fao):
     else:
         return 0
 
-data['over_under'] = data.apply(lambda x : over_thresh(x['federal_action_obligation']), axis = 1)
+data['signif_deob'] = data.apply(lambda x : over_thresh(x['federal_action_obligation']), axis = 1)
 
-print(data.head(5))
+
+
